@@ -15,12 +15,12 @@
     --foreground: hsl(0, 0%, 98%);
     --muted-foreground: hsl(0, 0%, 65%);
     --secondary: hsl(220, 26%, 12%);
-
+    
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(220, 26%, 6%), hsl(220, 26%, 10%));
     --gradient-gold: linear-gradient(135deg, hsl(40, 61%, 48%), hsl(40, 40%, 38%));
     --gradient-card: linear-gradient(135deg, hsl(220, 26%, 8%), hsl(220, 26%, 12%));
-
+    
     /* Typography */
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -30,7 +30,7 @@
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
-
+    
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 0.75rem;
@@ -39,7 +39,7 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
-
+    
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -51,23 +51,12 @@ body {
     line-height: 1.6;
 }
 
-/* global container reused class */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
     padding: 0 var(--spacing-lg);
-}
-
-/* individual containers styling */
-.con-row {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-.con-col {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
 /* Buttons */
@@ -140,13 +129,6 @@ h3 {
     margin: 0 auto;
 }
 
-/* gradients on text */
-h1 {
-    background: linear-gradient(to bottom right, var(--foreground), var(--vault-gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 /* Hero Section */
 .hero-section {
     min-height: 100vh;
@@ -164,7 +146,7 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('');
+    background-image: url('../src/assets/hero-chart.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.1;
@@ -205,7 +187,7 @@ h1 {
 
 .floating-icons {
     position: absolute;
-    transform: translateY(-100px);
+    top: 20%;
     display: flex;
     z-index: 2;
 }
@@ -229,25 +211,18 @@ h1 {
 }
 
 .floating-icon.crash {
-    color: #ef4444;
+      color: #ef4444;
     animation-delay: 2s;
 }
 
 .floating-icon.vix {
-    color: var(--vault-gold);
+     color: var(--vault-gold);
     animation-delay: 4s;
 }
 
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 /* Synthetics Intro */
@@ -717,29 +692,29 @@ h1 {
     .container {
         padding: 0 var(--spacing-md);
     }
-
+    
     h1 {
         font-size: var(--font-size-3xl);
     }
-
+    
     h2 {
         font-size: var(--font-size-2xl);
     }
-
+    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .btn {
         width: 100%;
         max-width: 300px;
     }
-
+    
     .floating-icons {
         display: none;
     }
-
+    
     .benefits-grid,
     .instruments-grid,
     .why-benefits-grid,
@@ -748,19 +723,19 @@ h1 {
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .features-highlight {
         flex-direction: column;
         align-items: center;
         gap: var(--spacing-md);
     }
-
+    
     .instruments-highlight {
         flex-direction: column;
         align-items: center;
         gap: var(--spacing-md);
     }
-
+    
     .final-buttons {
         flex-direction: column;
         align-items: center;
@@ -773,7 +748,7 @@ h1 {
         --font-size-4xl: 1.75rem;
         --font-size-3xl: 1.5rem;
     }
-
+    
     .container {
         padding: 0 var(--spacing-sm);
     }

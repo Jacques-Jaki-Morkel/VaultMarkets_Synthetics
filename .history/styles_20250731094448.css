@@ -50,24 +50,16 @@ body {
     color: var(--foreground);
     line-height: 1.6;
 }
-
 /* global container reused class */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
-
 /* individual containers styling */
-.con-row {
-    display: flex;
+.con-one {
+display: flex;
     justify-content: center;
-    flex-direction: row;
-}
-.con-col {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
 /* Buttons */
@@ -164,7 +156,7 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('');
+    background-image: url('../src/assets/hero-chart.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.1;
