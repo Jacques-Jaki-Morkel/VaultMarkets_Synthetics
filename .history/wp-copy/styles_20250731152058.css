@@ -1,0 +1,794 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color:  hsl(220, 26%, 6%);
+    
+    line-height: 0.6;
+}
+
+/* global container reused class */
+.vm-container {
+   
+    margin: 0 auto;
+    padding: 0  1.5rem;
+}
+
+/* individual containers styling */
+.vm-con-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.vm-con-col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Buttons */
+.vm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding:  0.75rem  2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size:  1rem;
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+.vm-btn-primary {
+    background:  linear-gradient(135deg, hsl(40, 61%, 48%), hsl(40, 40%, 38%));
+    color:  hsl(220, 26%, 6%) !important;
+    border: none;
+}
+
+.vm-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(241, 196, 15, 0.3);
+}
+
+.vm-btn-outline {
+    background: transparent;
+    color:  hsl(0, 0%, 98%) !important;;
+    border: 2px solid  hsl(220, 26%, 15%);
+}
+
+.vm-btn-outline:hover {
+    background:  hsl(220, 26%, 8%);
+    border-color:  hsl(40, 61%, 48%);
+}
+
+/* Typography */
+h1 {
+    color: hsl(0, 0%, 98%);
+    font-size:  3rem;
+    font-weight: bold;
+    line-height: 4rem;
+    margin-bottom:  1.5rem;
+}
+
+h2 {
+    color: hsl(0, 0%, 98%);
+    font-size:  2.25rem;
+    font-weight: bold;
+    line-height: 3rem;
+    margin-bottom:  1rem;
+}
+
+h3 {
+    color: hsl(0, 0%, 98%);
+    font-size:  1.5rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    margin-bottom:  0.75rem;
+}
+p {
+    color:  hsl(0, 0%, 65%);
+    line-height: 1.25rem;
+}
+
+.vm-section-header {
+    text-align: center;
+    margin-bottom:  4rem;
+}
+
+.vm-section-header p {
+    font-size:  1.125rem;
+    color:  hsl(0, 0%, 65%);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* gradients on text */
+.span-gradinet {
+    background: linear-gradient(90deg, hsl(0, 0%, 98%), hsl(40, 61%, 48%)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+
+/* Hero Section */
+.vm-hero-section {
+    min-height: 100vh;
+    height: 10px;
+    background-image: url('https://stage.vaultmarkets.trade/wp-content/uploads/2025/07/hero-chart.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.vm-hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.904) 60%, rgba(0, 0, 0, 0));
+    /* Top shadow fade */
+    pointer-events: none;
+}
+
+
+.vm-hero-content {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vm-hero-subtitle {
+    font-size:  1.25rem;
+    color:  hsl(0, 0%, 65%);
+    margin-bottom:  3rem;
+}
+
+.vm-hero-buttons {
+    display: flex;
+    gap:  1.5rem;
+    justify-content: center;
+    margin-bottom:  3rem;
+    flex-wrap: wrap;
+}
+
+.vm-markets-badge {
+    background:  hsl(220, 26%, 8%);
+    padding:  0.75rem  1.5rem;
+    border-radius: 2rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    font-size:  0.875rem;
+    color:  hsl(40, 61%, 48%);
+}
+
+.vm-markets-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* space between dot and text */
+    font-size: 14px;
+}
+
+.vm-market-badge-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color:  rgb(34 197 94);
+    animation: pulse 0.75s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.6);
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.vm-floating-icons {
+    position: absolute;
+    transform: translateY(-100px);
+    display: flex;
+    z-index: 2;
+}
+
+.vm-floating-icon {
+    position: relative;
+    display: flex;
+    background:  hsl(220, 26%, 8%);
+    padding:  0.75rem  1rem;
+    border-radius: 0.5rem;
+    border: 1px solid  hsl(220, 26%, 15);
+    font-size:  0.875rem;
+    font-weight: 600;
+    animation: float 6s ease-in-out infinite;
+    align-items: center;
+}
+
+.vm-floating-icon.vm-boom {
+    color: #10b981;
+    animation-delay: 0s;
+}
+
+.vm-floating-icon.vm-crash {
+    color: #ef4444;
+    animation-delay: 2s;
+}
+
+.vm-floating-icon.vm-vix {
+    color:  hsl(40, 61%, 48%);
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Synthetics Intro */
+.vm-synthetics-intro {
+    padding: 4rem 0;
+    background-image: url('https://stage.vaultmarkets.trade/wp-content/uploads/2025/07/VM-patterns-dark.webp');
+    background-position: center;
+    background-size: stretch;
+    background-repeat: no-repeat;
+}
+
+.vm-synthetics-intro::before {
+    background-color: #ef4444;
+}
+
+
+
+.vm-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:  2rem;
+    margin-bottom:  3rem;
+}
+
+.vm-benefit-card {
+    background:  hsl(220, 26%, 8%);
+    padding:  2rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    text-align: center;
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vm-benefit-card:hover {
+    transform: translateY(-5px);
+    border-color:  hsl(40, 61%, 48%);
+}
+
+.vm-benefit-icon {
+    font-size:  1.875rem;
+    margin-bottom:  1rem;
+}
+
+.vm-vault-advantage {
+    text-align: center;
+    font-size:  1.125rem;
+    color:  hsl(0, 0%, 65%);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Instruments Showcase */
+.vm-instruments-showcase {
+    padding:  4rem 0;
+    background:  hsl(220, 26%, 6%);
+}
+
+.vm-instruments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:  2rem;
+}
+
+.vm-instrument-card {
+    background:  hsl(220, 26%, 8%);
+    padding:  2rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vm-instrument-card:hover {
+    transform: translateY(-5px);
+    border-color:  hsl(40, 61%, 48%);
+}
+
+.vm-instrument-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:  1rem;
+}
+
+.vm-instrument-symbol {
+    font-size:  1.25rem;
+    font-weight: bold;
+    color:  hsl(40, 61%, 48%);
+}
+
+.vm-mini-chart {
+    width: 80px;
+    height: 40px;
+}
+
+.vm-mini-chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+.vm-instrument-description {
+    color:  hsl(0, 0%, 65%);
+    margin-bottom:  1rem;
+}
+
+.vm-best-for {
+    display: inline-block;
+    background:  hsl(40, 61%, 48%);
+    color:  hsl(220, 26%, 6%);
+    padding:  0.5rem  0.75rem;
+    border-radius: 0.25rem;
+    font-size:  0.875rem;
+    font-weight: 600;
+}
+
+/* Why Vault Section */
+.vm-why-vault {
+    padding:  4rem 0;
+    background:  linear-gradient(135deg, hsl(220, 26%, 8%), hsl(220, 26%, 12%));
+}
+
+.vm-why-vault h2 {
+    text-align: center;
+    margin-bottom:  3rem;
+}
+
+.vm-why-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:  1.5rem;
+    margin-bottom:  3rem;
+}
+
+.vm-why-benefit {
+    text-align: center;
+    padding:  1.5rem;
+}
+
+.vm-why-icon {
+    font-size:  1.875rem;
+    margin-bottom:  1rem;
+}
+
+.vm-cta-box {
+    background:  hsl(220, 26%, 8%);
+    padding:  3rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    text-align: center;
+}
+
+/* How to Start */
+.vm-how-to-start {
+    padding:  4rem 0;
+    background:  hsl(220, 26%, 6%);
+}
+
+.vm-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:  2rem;
+    margin-bottom:  4rem;
+}
+
+.vm-step {
+    background: hsl(220, 26%, 8%);
+    padding:  2rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    text-align: center;
+    position: relative;
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vm-step:hover {
+    transform: translateY(-5px);
+    border-color:  hsl(40, 61%, 48%);
+}
+
+.vm-step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background:  linear-gradient(135deg, hsl(40, 61%, 48%), hsl(40, 40%, 38%));
+    color:  hsl(220, 26%, 6%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.vm-step-icon {
+    font-size:  1.875rem;
+    margin:  1.5rem 0  1rem;
+}
+
+.vm-step-action {
+    display: inline-block;
+    color:  hsl(40, 61%, 48%);
+    font-weight: 600;
+    margin-top:  1rem;
+}
+
+.vm-final-cta {
+    background:  hsl(220, 26%, 8%);
+    padding:  3rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    text-align: center;
+}
+
+/* Educational Section */
+.vm-educational {
+    padding:  4rem 0;
+    background:  linear-gradient(135deg, hsl(220, 26%, 8%), hsl(220, 26%, 12%));
+}
+
+.vm-education-highlight {
+    margin-bottom:  3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.vm-video-card {
+    background:  hsl(220, 26%, 8%);
+    padding:  2rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    max-width: 400px;
+    text-align: center;
+}
+
+.vm-video-thumbnail {
+    width: 100%;
+    height: 200px;
+    background:  hsl(220, 26%, 6%);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:  1rem;
+    position: relative;
+}
+
+.vm-play-button {
+    width: 60px;
+    height: 60px;
+    background:  hsl(40, 61%, 48%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:  1.25rem;
+    color:  hsl(220, 26%, 6%);
+    cursor: pointer;
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vm-play-button:hover {
+    transform: scale(0.1);
+}
+
+.vm-video-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top:  1rem;
+    font-size:  0.875rem;
+    color:  hsl(0, 0%, 65%);
+}
+
+.vm-resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:  1.5rem;
+    margin-bottom:  3rem;
+}
+
+.vm-resource-card {
+    background:  hsl(220, 26%, 8%);
+    padding:  1.5rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vm-resource-card:hover {
+    transform: translateY(-5px);
+    border-color:  hsl(40, 61%, 48%);
+}
+
+.vm-resource-icon {
+    font-size:  1.5rem;
+    margin-bottom:  1rem;
+}
+
+.vm-resource-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top:  1rem;
+    font-size:  0.875rem;
+    color:  hsl(0, 0%, 65%);
+}
+
+.vm-education-cta {
+    background:  hsl(220, 26%, 8%);
+    padding:  3rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    text-align: center;
+}
+
+/* Testimonials */
+.vm-testimonials {
+    padding:  4rem 0;
+    background:  hsl(220, 26%, 6%);
+}
+
+.vm-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:  2rem;
+    margin-bottom:  3rem;
+}
+
+.vm-testimonial-card {
+    background:  hsl(220, 26%, 8%);
+    padding:  2rem;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%);
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vm-testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color:  hsl(40, 61%, 48%);
+}
+
+.vm-stars {
+    color:  hsl(40, 61%, 48%);
+    margin-bottom:  1rem;
+}
+
+.vm-testimonial-author {
+    margin-top:  1rem;
+    padding-top:  1rem;
+    border-top: 1px solid  hsl(220, 26%, 15%);
+}
+
+.vm-testimonial-author strong {
+    display: block;
+    color:  hsl(0, 0%, 98%);
+}
+
+.vm-testimonial-author span {
+    color:  hsl(0, 0%, 65%);
+    font-size:  0.875rem;
+}
+
+.vm-instrument-traded {
+    margin-top:  0.5rem;
+    font-size:  0.875rem;
+    color:  hsl(40, 61%, 48%);
+}
+
+.vm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap:  1.5rem;
+    background:  hsl(220, 26%, 8%) ;
+    padding:  3rem ;
+    border-radius: 1rem;
+    border: 1px solid  hsl(220, 26%, 15%) ;
+}
+
+.vm-stat {
+    text-align: center;
+}
+
+.vm-stat-number {
+    font-size:  1.875rem ;
+    font-weight: bold;
+    color:  hsl(40, 61%, 48%) ;
+    margin-bottom:  0.5rem ;
+}
+
+.vm-stat-label {
+    color:  hsl(0, 0%, 65%) ;
+    font-size:  0.875rem ;
+}
+
+/* Final CTA */
+.vm-final-cta {
+    padding:  4rem 0;
+    background:  linear-gradient(90deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.274)) ;
+}
+
+.vm-cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vm-instruments-highlight {
+    display: flex;
+    justify-content: center;
+    gap:  1.5rem ;
+    margin:  1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.vm-instrument {
+    padding:  0.75rem  1.5rem ;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size:  1.125rem ;
+}
+
+.vm-instrument.vm-boom {
+    background: rgba(16, 185, 129, 0.1 );
+    color: #10b981;
+    border: 1px solid #10b981;
+}
+
+.vm-instrument.vm-crash {
+    background: rgba(239, 68, 68, 0.1 );
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
+.vm-instrument.vm-vix {
+    background: rgba(241, 196, 15, 0.1 );
+    color:  hsl(40, 61%, 48%) ;
+    border: 1px solid  hsl(40, 61%, 48%) ;
+}
+
+.vm-features-highlight {
+    display: flex;
+    justify-content: center;
+    gap:  3rem ;
+    margin:  3rem 0;
+    flex-wrap: wrap;
+}
+
+.vm-feature {
+    display: flex;
+    align-items: center;
+    gap:  0.75rem ;
+    color:  hsl(0, 0%, 65%) ;
+}
+
+.vm-feature-icon {
+    font-size:  1.125rem ;
+}
+
+.vm-final-buttons {
+    display: flex;
+    gap:  1.5rem ;
+    justify-content: center;
+    margin:  3rem 0;
+    flex-wrap: wrap;
+}
+
+.vm-risk-disclaimer {
+    margin-top:  3rem ;
+    color:  hsl(0, 0%, 65%) ;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vm-container {
+        padding: 0  1rem ;
+    }
+
+    h1 {
+        font-size:  1.875rem ;
+    }
+
+    h2 {
+        font-size:  1.5rem ;
+    }
+
+    .vm-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vm-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .vm-floating-icons {
+        display: none;
+    }
+
+    .vm-benefits-grid,
+    .vm-instruments-grid,
+    .vm-why-benefits-grid,
+    .vm-steps-grid,
+    .vm-resources-grid,
+    .vm-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vm-features-highlight {
+        flex-direction: column;
+        align-items: center;
+        gap:  1rem ;
+    }
+
+    .vm-instruments-highlight {
+        flex-direction: column;
+        align-items: center;
+        gap:  1rem ;
+    }
+
+    .vm-final-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .vm-container {
+        padding: 0  0.75rem ;
+    }
+}

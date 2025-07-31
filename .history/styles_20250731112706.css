@@ -165,16 +165,13 @@ h1 {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.904) 60%, rgba(0,0,0,0)); /* Top shadow fade */
+    background: linear-gradient(to right, rgb(0, 0, 0) 60%, rgba(0,0,0,0)); /* Top shadow fade */
     pointer-events: none;
 }
 
 
 .hero-content {
     position: relative;
-        flex-direction: column;
-    align-items: center;
-    display: flex;
     z-index: 2;
     text-align: center;
     max-width: 800px;
@@ -196,43 +193,13 @@ h1 {
 }
 
 .markets-badge {
+    display: inline-block;
     background: var(--vault-card);
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: 2rem;
     border: 1px solid var(--vault-border);
     font-size: var(--font-size-sm);
     color: var(--vault-gold);
-}
-.markets-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; /* space between dot and text */
-  font-size: 14px;
-}
-
-.market-badge-icon {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--vault-gold);
-  animation: pulse 1.5s infinite;
-  flex-shrink: 0;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.6);
-    opacity: 0.3;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
 }
 
 .floating-icons {
