@@ -50,7 +50,7 @@ body {
 
 .vm-btn-primary {
     background: linear-gradient(135deg, hsl(40, 61%, 48%), hsl(40, 40%, 38%));
-    color: hsl(0, 0%, 98%) !important;
+    color: hsl(220, 26%, 6%) !important;
     border: none;
 }
 
@@ -124,10 +124,10 @@ p {
 span {
     color: hsl(40, 61%, 48%) !important;
 }
-
-.icons-size {
-    width: 20% !important;
-    height: auto;
+.icons-size{
+  object-fit: inherit;   
+  width: 50% !important;
+  height: auto;
 }
 
 
@@ -344,7 +344,7 @@ span {
 .vm-instruments-showcase {
     padding: 4rem 0;
     height: 80vh;
-    background: rgb(0, 0, 0);
+    background: hsl(220, 26%, 6%);
 }
 
 .vm-instruments-grid {
@@ -356,7 +356,7 @@ span {
 .vm-instrument-card {
     background: hsl(220, 26%, 8%);
     padding: 2rem;
-    height: 450px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -384,22 +384,11 @@ span {
 .vm-instrument-symbol {
     font-size: 1.25rem;
     font-weight: bold;
-    position: absolute;
-    right: 5%;
-    color: hsl(0, 0%, 98%) !important;
-}
-
-.vm-instrument-heading {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 16px;
+    color: hsl(40, 61%, 48%);
 }
 
 .vm-mini-chart {
-    width: 100%;
-    top: 25%;
-    position: absolute;
+    width: 80px;
     height: 40px;
 }
 
@@ -413,53 +402,24 @@ span {
     margin-bottom: 1rem;
 }
 
-.vm-instrument-icon {
-    position: absolute;
-    display: block;
-    left: 5%;
-    top: 5%;
-    width: 40px;
-    /* adjust icon size here; */
-}
-
-.vm-instrument-icon img {
-    width: 100%;
-    height: auto;
-}
-
 .vm-best-for {
     display: inline-block;
-
-    color: hsl(40, 61%, 48%) !important;
-
+    background: hsl(40, 61%, 48%);
+    color: hsl(220, 26%, 6%);
+    padding: 0.5rem 0.75rem;
     border-radius: 0.25rem;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 0.875rem;
+    font-weight: 600;
 }
 
 /* Why Vault Section */
 .vm-why-vault {
-    position: relative;
     padding: 4rem 0;
-    background-image: url('https://stage.vaultmarkets.trade/wp-content/uploads/2025/07/VM-patterns-dark.webp');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
+    background: linear-gradient(135deg, hsl(220, 26%, 8%), hsl(220, 26%, 12%));
 }
-
-.vm-why-vault::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-    z-index: 0;
-}
-
 
 .vm-why-vault h2 {
     text-align: center;
-    position: relative;
     margin-bottom: 3rem;
 }
 
@@ -472,15 +432,11 @@ span {
 
 .vm-why-benefit {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     padding: 1.5rem;
 }
 
 .vm-why-icon {
     font-size: 1.875rem;
-    display: block;
     margin-bottom: 1rem;
 }
 
@@ -548,33 +504,12 @@ span {
     margin-top: 1rem;
 }
 
-.vm-banner-cta {
-
+.vm-final-cta {
     background: hsl(220, 26%, 8%);
-    padding: 3rem !important;
-    height: 250px;
-    border-radius: 1rem;
-    border: 1px solid hsl(220, 26%, 15%);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.vm-final-cta:last-of-type {
-    background: rgb(0, 0, 0);
     padding: 3rem;
     border-radius: 1rem;
     border: 1px solid hsl(220, 26%, 15%);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.vm-banner-cta h3,
-.vm-banner-cta p {
-    padding-bottom: 20px !important;
 }
 
 /* Educational Section */
@@ -680,7 +615,7 @@ span {
 /* Testimonials */
 .vm-testimonials {
     padding: 4rem 0;
-    background: rgb(0, 0, 0);
+    background: hsl(220, 26%, 6%);
 }
 
 .vm-testimonials-grid {
@@ -836,40 +771,64 @@ span {
     margin-right: auto;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vm-container {
+        padding: 0 1rem;
+    }
 
+    h1 {
+        font-size: 1.875rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .vm-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vm-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .vm-floating-icons {
+        display: none;
+    }
+
+    .vm-benefits-grid,
+    .vm-instruments-grid,
+    .vm-why-benefits-grid,
+    .vm-steps-grid,
+    .vm-resources-grid,
+    .vm-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vm-features-highlight {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .vm-instruments-highlight {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .vm-final-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 @media (max-width: 480px) {
 
     .vm-container {
         padding: 0 0.75rem;
     }
-
-    .vm-hero-section {
-        height: 750px;
-        display: flex;
-    }
-
-    .vm-hero-content {
-        width: 100%;
-
-    }
-
-    .vm-hero-section::before {
-        background: linear-gradient(to top, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0));
-
-    }
-
-    .vm-instruments-showcase {
-        height: 100%;
-    }
- .vm-why-benefit{
-    background: hsl(220, 26%, 8%);
- }
- .vm-instrument-card.is-focused {
-    transform: scale(1.03);
-    border-color: hsl(40, 61%, 48%);
-    transition: all 0.4s ease;
-    z-index: 2;
-}
-
 }

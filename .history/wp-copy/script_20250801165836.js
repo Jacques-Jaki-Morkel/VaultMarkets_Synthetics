@@ -2,24 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-
-    
-        const cards = document.querySelectorAll(".vm-instrument-card");
-        let current = 0;
-
-        if (cards.length === 0) return;
-
-        setInterval(() => {
-            // Remove active state from all
-            cards.forEach(card => card.classList.remove("is-focused"));
-
-            // Add active state to current card
-            cards[current].classList.add("is-focused");
-
-            // Move to next
-            current = (current + 1) % cards.length;
-        }, 2000); // 2 seconds per card
-   
     // Smooth scrolling for anchor links
     const smoothScroll = (target) => {
         const element = document.querySelector(target);

@@ -863,13 +863,6 @@ span {
         height: 100%;
     }
  .vm-why-benefit{
-    background: hsl(220, 26%, 8%);
+    background: #000;
  }
- .vm-instrument-card.is-focused {
-    transform: scale(1.03);
-    border-color: hsl(40, 61%, 48%);
-    transition: all 0.4s ease;
-    z-index: 2;
-}
-
 }

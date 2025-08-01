@@ -843,33 +843,12 @@ span {
     .vm-container {
         padding: 0 0.75rem;
     }
-
-    .vm-hero-section {
-        height: 750px;
+    .vm-hero-section{
+        height: 780px;
         display: flex;
     }
-
-    .vm-hero-content {
+    .vm-hero-content{
         width: 100%;
-
+        
     }
-
-    .vm-hero-section::before {
-        background: linear-gradient(to top, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0));
-
-    }
-
-    .vm-instruments-showcase {
-        height: 100%;
-    }
- .vm-why-benefit{
-    background: hsl(220, 26%, 8%);
- }
- .vm-instrument-card.is-focused {
-    transform: scale(1.03);
-    border-color: hsl(40, 61%, 48%);
-    transition: all 0.4s ease;
-    z-index: 2;
-}
-
 }
