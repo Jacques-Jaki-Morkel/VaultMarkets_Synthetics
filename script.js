@@ -1,7 +1,25 @@
 // Vanilla JavaScript for Vault Markets Landing Page
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
+
     
+        const cards = document.querySelectorAll(".vm-instrument-card");
+        let current = 0;
+
+        if (cards.length === 0) return;
+
+        setInterval(() => {
+            // Remove active state from all
+            cards.forEach(card => card.classList.remove("is-focused"));
+
+            // Add active state to current card
+            cards[current].classList.add("is-focused");
+
+            // Move to next
+            current = (current + 1) % cards.length;
+        }, 2000); // 2 seconds per card
+   
     // Smooth scrolling for anchor links
     const smoothScroll = (target) => {
         const element = document.querySelector(target);
@@ -16,15 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Button click handlers
     const setupButtonHandlers = () => {
         // Primary CTA buttons
-        const primaryButtons = document.querySelectorAll('.btn-primary');
+        const primaryButtons = document.querySelectorAll('.vm-btn-primary');
         primaryButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', function (e) {
                 // Add click animation
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = '';
                 }, 150);
-                
+
                 // Here you would typically redirect to account opening page
                 console.log('Primary CTA clicked - redirect to account opening');
                 // window.open('https://your-account-opening-url.com', '_blank');
@@ -32,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Demo/Watch buttons
-        const demoButtons = document.querySelectorAll('.btn-outline');
+        const demoButtons = document.querySelectorAll('.vm-btn-outline');
         demoButtons.forEach(button => {
             if (button.textContent.includes('Demo') || button.textContent.includes('Watch')) {
-                button.addEventListener('click', function(e) {
+                button.addEventListener('click', function (e) {
                     console.log('Demo/Watch button clicked');
                     // Here you would typically open a demo or video
                     // window.open('https://your-demo-url.com', '_blank');
@@ -44,9 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Video play button
-        const playButton = document.querySelector('.play-button');
+        const playButton = document.querySelector('.vm-play-button');
         if (playButton) {
-            playButton.addEventListener('click', function(e) {
+            playButton.addEventListener('click', function (e) {
                 console.log('Video play button clicked');
                 // Here you would typically open a video modal or redirect
                 // showVideoModal();
@@ -71,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, observerOptions);
 
         // Observe elements for animation
-        const animatedElements = document.querySelectorAll('.benefit-card, .instrument-card, .why-benefit, .step, .testimonial-card, .resource-card');
+        const animatedElements = document.querySelectorAll('.vm-benefit-card, .vm-instrument-card, .vm-why-benefit, .vm-step, .vm-testimonial-card, .vm-resource-card');
         animatedElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -82,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Floating icons animation enhancement
     const enhanceFloatingIcons = () => {
-        const floatingIcons = document.querySelectorAll('.floating-icon');
+        const floatingIcons = document.querySelectorAll('.vm-floating-icon');
         floatingIcons.forEach((icon, index) => {
             // Add random movement
             setInterval(() => {
@@ -95,15 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Card hover effects
     const setupCardEffects = () => {
-        const cards = document.querySelectorAll('.benefit-card, .instrument-card, .testimonial-card, .resource-card, .step');
-        
+        const cards = document.querySelectorAll('.vm-benefit-card, .vm-instrument-card, .vm-testimonial-card, .vm-resource-card, .vm-step');
+
         cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
                 this.style.boxShadow = '0 20px 40px rgba(241, 196, 15, 0.1)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
                 this.style.boxShadow = 'none';
             });
@@ -114,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const setupFormValidation = () => {
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 // Add your form validation logic here
                 console.log('Form submitted');
@@ -124,14 +142,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Stats counter animation
     const animateStats = () => {
-        const stats = document.querySelectorAll('.stat-number');
+        const stats = document.querySelectorAll('.vm-stat-number');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = entry.target;
                     const text = target.textContent;
                     const number = parseInt(text.replace(/[^0-9]/g, ''));
-                    
+
                     if (number && number > 0) {
                         animateNumber(target, 0, number, text);
                     }
@@ -145,29 +163,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const animateNumber = (element, start, end, originalText) => {
         const duration = 2000; // 2 seconds
         const startTime = performance.now();
-        
+
         const updateNumber = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             const current = Math.floor(start + (end - start) * progress);
             element.textContent = originalText.replace(/[0-9,]+/, current.toLocaleString());
-            
+
             if (progress < 1) {
                 requestAnimationFrame(updateNumber);
             }
         };
-        
+
         requestAnimationFrame(updateNumber);
     };
 
     // Mobile menu toggle (if mobile menu is added)
     const setupMobileMenu = () => {
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
+        const menuToggle = document.querySelector('.vm-mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.vm-mobile-menu');
+
         if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', function () {
                 mobileMenu.classList.toggle('active');
             });
         }
@@ -201,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupLazyLoading();
 
     // Add loading state management
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         document.body.classList.add('loaded');
     });
 
@@ -213,10 +231,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Track button clicks for analytics
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-primary')) {
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('vm-btn-primary')) {
             trackEvent('cta_click', { button_type: 'primary', button_text: e.target.textContent });
-        } else if (e.target.classList.contains('btn-outline')) {
+        } else if (e.target.classList.contains('vm-btn-outline')) {
             trackEvent('cta_click', { button_type: 'secondary', button_text: e.target.textContent });
         }
     });
@@ -276,6 +294,10 @@ const utils = {
         };
     }
 };
+
+
+
+
 
 // Export utils for use in other scripts
 window.VaultUtils = utils;
